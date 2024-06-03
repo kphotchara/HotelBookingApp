@@ -35,7 +35,7 @@ struct ContentView: View {
                                             }.frame(width: 0,height: 15)
                                             .onPreferenceChange(ScrollOffsetKey.self) { value in
                                                 scrollOffset = value
-                                                let newHeight = min(175,max(100, 175 - (-scrollOffset)))
+                                                let newHeight = min(200,max(100, 175 - (-scrollOffset)))
                                                 if headerHeight != newHeight {
                                                     headerHeight = newHeight
                                                 }
@@ -76,6 +76,7 @@ struct ContentView: View {
                                     .tabItem { Text("Book") }.tag(Tab.house)
                                      .ignoresSafeArea()
                                 LoginPage().tabItem { Text("Profile") }.tag(Tab.person)
+                                Text("???").tabItem { }.tag(Tab.bag)
                         })
                     }
                     VStack{

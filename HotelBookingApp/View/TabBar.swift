@@ -10,7 +10,7 @@ import SwiftUI
 enum Tab: String , CaseIterable{
     case house
     case person
-
+    case bag
 }
 
 struct TabBar: View {
@@ -21,6 +21,8 @@ struct TabBar: View {
     }
     private var tabColor : Color {
         switch selectedTab {
+        case .bag:
+            return Color.color1
         case .house:
             return Color.color1
         case .person:
@@ -49,6 +51,19 @@ struct TabBar: View {
                     }
                     Spacer()
                     
+                    Spacer()
+                    VStack {
+                        Image(systemName: "bag.fill").font(.system(size: 15))
+                        Text("?????").font(.caption2)
+                    }
+                    .foregroundColor(Tab.bag == selectedTab ? Color.color1 : Color.color2)
+                    .scaleEffect(Tab.bag == selectedTab ? 1.1 : 1.0)
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.1)) {
+                            selectedTab = Tab.bag
+                        }
+                    }
+                    Spacer()
                     
                     Spacer()
                     VStack {
@@ -63,7 +78,9 @@ struct TabBar: View {
                         }
                     }
                     Spacer()
-                        
+                    
+                    
+                    
                         
                     
                 }
